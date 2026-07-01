@@ -1,0 +1,32 @@
+HOW TO USE THIS FOR EACH NEW COUPLE
+====================================
+
+You only ever edit ONE file: config.js
+Never touch index.html or the <style> code — that's the design,
+and it stays identical across every client.
+
+For each new request:
+
+1. Duplicate this whole "wedding-invite-v2" folder and rename it
+   (e.g. "riya-arjun-invite").
+
+2. Open config.js in any text editor. Fill in:
+   - brideName, groomName, tagline, weddingDateDisplay, weddingCity
+   - weddingDateISO   (powers the live countdown — keep the +05:30)
+   - venue name / address / mapQuery
+   - couple.bride / couple.groom (name, role, bio)
+   - couple.story (2 chapters — add more objects to the array if needed)
+   - events (add/remove/reorder entries freely — the page rebuilds
+     itself automatically from this list)
+   - hashtag
+
+3. Drop their photos and video directly into this SAME folder
+   (right next to index.html — no subfolders) using the exact
+   filenames listed in README.txt (or change the "image"/"file"
+   paths in config.js to match whatever filenames you'd rather use).
+
+4. Open index.html in a browser to preview. Done — no HTML editing.
+
+That's the whole workflow: one config file + photos dropped in the
+same folder, per couple. Everything else (layout, animations, colors,
+countdown logic, map links) is shared and untouched.
