@@ -1006,6 +1006,12 @@
         );
       });
 
+      storyVideo.addEventListener("ended", () => {
+        videoWrap.classList.remove("playing");
+        storyVideo.currentTime = 0;
+        storyVideo.pause();
+      });
+
       /* ---------- Events ---------- */
       const eventsGrid = document.getElementById("eventsGrid");
       C.events.forEach((ev) => {
