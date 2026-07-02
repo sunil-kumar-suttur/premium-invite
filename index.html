@@ -600,6 +600,21 @@
         margin-bottom: 6px;
       }
 
+      .website-contact {
+        display: block;
+        margin-top: 8px;
+        font-size: 10px; /* very small */
+        color: rgba(94, 27, 42, 0.7);
+        text-decoration: none;
+        font-family: "Karla", sans-serif;
+        cursor: pointer;
+        transition: color 0.2s ease;
+      }
+
+      .website-contact:hover {
+        color: var(--maroon-deep);
+      }
+
       @media (max-width: 760px) {
         .timeline {
           grid-template-columns: 1fr;
@@ -718,6 +733,10 @@
     <footer>
       <div class="display" id="footerNames"></div>
       <span id="footerLine"></span>
+
+      <a href="tel:9071330429" class="website-contact">
+        For Wedding Website Call: 9071330429
+      </a>
     </footer>
 
     <script>
