@@ -727,7 +727,6 @@
       <div class="label">Watch</div>
       <h2 class="heading">Our story, in motion</h2>
       <div class="video-wrap reveal" id="videoWrap">
-        <div class="ph-media no-curtain" id="videoPoster"></div>
         <video id="storyVideo" playsinline preload="none"></video>
         <div class="play-overlay">
           <div class="play-btn">
@@ -822,8 +821,7 @@
           mapQuery: "The Leela Palace Bengaluru",
         },
         video: {
-          poster: "video-poster.png",
-          file: "videos/video.mp4",
+          file: "video.mp4",
           caption: "A short film of our journey together",
         },
         couple: {
@@ -945,11 +943,7 @@
       );
 
       /* ---------- Video poster + click-to-play ---------- */
-      setMedia(
-        document.getElementById("videoPoster"),
-        C.video.poster,
-        "Video poster frame",
-      );
+
       const storyVideo = document.getElementById("storyVideo");
       storyVideo.innerHTML = `<source src="${C.video.file}" type="video/mp4">`;
       const videoWrap = document.getElementById("videoWrap");
