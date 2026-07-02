@@ -280,58 +280,7 @@
         background: rgba(255, 255, 255, 0.16);
       }
 
-      /* ---------- Video (click to play) ---------- */
-      .video-section {
-        padding: 80px 6vw 20px;
-        max-width: 1000px;
-        margin: 0 auto;
-        text-align: center;
-      }
-      .video-wrap {
-        position: relative;
-        width: 100%;
-        height: clamp(320px, 56vw, 560px);
-        background: #000;
-        cursor: pointer;
-        overflow: hidden;
-        border-radius: 8px;
-        margin-top: 26px;
-      }
-      .video-wrap video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-      .play-overlay {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(62, 16, 27, 0.3);
-        transition: background 0.3s ease;
-      }
-      .video-wrap:hover .play-overlay {
-        background: rgba(62, 16, 27, 0.45);
-      }
-      .play-btn {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        background: rgba(251, 244, 230, 0.92);
-        border: 2px solid var(--gold);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        animation: breathe 2.6s ease-in-out infinite;
-      }
-      .play-btn svg {
-        width: 24px;
-        height: 24px;
-        fill: var(--maroon-deep);
-        margin-left: 3px;
-      }
+      
       @keyframes breathe {
         0%,
         100% {
@@ -341,22 +290,7 @@
           box-shadow: 0 0 0 14px rgba(200, 162, 74, 0);
         }
       }
-      .video-caption {
-        position: absolute;
-        bottom: 18px;
-        left: 0;
-        right: 0;
-        text-align: center;
-        color: var(--cream);
-        font-size: 11px;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        opacity: 0.9;
-      }
-      .video-wrap.playing .play-overlay,
-      .video-wrap.playing .video-caption {
-        display: none;
-      }
+      
 
       /* ---------- Divider ---------- */
       .divider {
@@ -723,19 +657,7 @@
       </div>
     </section>
 
-    <div class="video-section">
-      <div class="label">Watch</div>
-      <h2 class="heading">Our story, in motion</h2>
-      <div class="video-wrap reveal" id="videoWrap">
-        <video id="storyVideo" playsinline preload="none"></video>
-        <div class="play-overlay">
-          <div class="play-btn">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-          </div>
-        </div>
-        <div class="video-caption" id="videoCaption"></div>
-      </div>
-    </div>
+    
 
     <div id="arch1"></div>
 
@@ -820,10 +742,6 @@
           imageLabel: "Photo of the venue",
           mapQuery: "The Leela Palace Bengaluru",
         },
-        video: {
-          file: "video.mp4",
-          caption: "A short film of our journey together",
-        },
         couple: {
           bride: {
             name: "Aanya",
@@ -890,7 +808,6 @@
         `${C.brideName}<span class="amp">&amp;</span>${C.groomName}`;
       document.getElementById("heroSub").textContent =
         `${C.weddingDateDisplay} · ${C.weddingCity.toUpperCase()}`;
-      document.getElementById("videoCaption").textContent = C.video.caption;
       document.getElementById("venueName").textContent = C.venue.name;
       document.getElementById("venueAddress").textContent = C.venue.address;
       document.getElementById("venueCeremonyTime").textContent =
@@ -942,23 +859,7 @@
         C.venue.imageLabel,
       );
 
-      /* ---------- Video poster + click-to-play ---------- */
-
-      const storyVideo = document.getElementById("storyVideo");
-      storyVideo.innerHTML = `<source src="${C.video.file}" type="video/mp4">`;
-      const videoWrap = document.getElementById("videoWrap");
-      videoWrap.addEventListener("click", () => {
-        if (videoWrap.classList.contains("playing")) return;
-        storyVideo
-          .play()
-          .then(() => videoWrap.classList.add("playing"))
-          .catch(() => {
-            videoWrap.classList.add("playing");
-            document.getElementById("videoPoster").innerHTML =
-              `<div class="ph-fallback">
-      <div class="lbl">Video placeholder</div><div class="path">${C.video.file}</div></div>`;
-          });
-      });
+      
 
       /* ---------- Couple cards (bride/groom) ---------- */
       const coupleGrid = document.getElementById("coupleGrid");
@@ -1006,11 +907,7 @@
         );
       });
 
-      storyVideo.addEventListener("ended", () => {
-        videoWrap.classList.remove("playing");
-        storyVideo.currentTime = 0;
-        storyVideo.pause();
-      });
+      
 
       /* ---------- Events ---------- */
       const eventsGrid = document.getElementById("eventsGrid");
