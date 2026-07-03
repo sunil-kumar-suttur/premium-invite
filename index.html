@@ -588,33 +588,34 @@
       }
 
       footer {
-          position: relative;
-          text-align: center;
-          padding: 40px 20px 60px;
-          color: var(--maroon);
-          font-size: 13px;
-          letter-spacing: 1px;
-        }
-    
-    .website-contact {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 10px;
-      color: rgba(94, 27, 42, 0.7);
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    
-    .website-contact:hover {
-      color: var(--maroon-deep);
-      }
-      footer .display {
-        font-size: 20px;
-        color: var(--maroon-deep);
-        margin-bottom: 6px;
-      }
+    text-align: center;
+    padding: 40px 20px 60px;
+    color: var(--maroon);
+    font-size: 13px;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+.website-contact {
+  display: block;
+  font-size: 11px;
+  color: rgba(94, 27, 42, 0.7);
+  text-decoration: none;
+  white-space: nowrap;
+  margin-top: 4px;
+}
+
+.website-contact:hover {
+  color: var(--maroon-deep);
+  }
+  footer .display {
+    font-size: 20px;
+    color: var(--maroon-deep);
+    margin-bottom: 6px;
+  }
 
       @media (max-width: 760px) {
         .timeline {
